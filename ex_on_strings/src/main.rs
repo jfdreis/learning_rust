@@ -4,18 +4,25 @@
 // Keep in mind the details about UTF-8 encoding!
 
 fn main() {
-    let mut my_string = String::from("apple");
+    let mut my_string = String::from("fogo");
     // Using indexing to get the first character (byte)
-    
     if let Some(first_char) = my_string.chars().next() {
         println!("The first character is: {}", first_char);
+        my_string.push_str("-");
+        if is_vowel(first_char) {
+            my_string.push_str("hay");
+            println!("{}",my_string);
+        } else {
+            let mut a = String::from(first_char);
+            a.push_str("ay");
+            let new_string=&my_string[1..];
+            let mut result_string = String::from(new_string);
+            result_string.push_str(&a);
+            println!("{}",result_string);
+
+        }
     } else {
         println!("The string is empty.");
-    }
-
-    if is_vowel(first_char) {
-        my_string.push_str(first_char);
-        println!("{}",my_string);
     }
 }
 
